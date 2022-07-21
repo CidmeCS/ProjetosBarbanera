@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30011.22
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoginERP2", "LoginERP2.csproj", "{289EB24D-3A0B-4226-88B6-6B0F985BB849}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{289EB24D-3A0B-4226-88B6-6B0F985BB849}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{289EB24D-3A0B-4226-88B6-6B0F985BB849}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{289EB24D-3A0B-4226-88B6-6B0F985BB849}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{289EB24D-3A0B-4226-88B6-6B0F985BB849}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A0DDEB04-713A-4E4E-B492-07DACD536DDE}
+	EndGlobalSection
+EndGlobal

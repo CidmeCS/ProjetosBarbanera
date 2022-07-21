@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns1="urn:@:WTpBase" name="IWTpBaseservice" targetNamespace="http://tempuri.org/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <xs:schema xmlns="urn:@:WTpBase" targetNamespace="urn:@:WTpBase">
+      <xs:complexType name="TWRemStatus">
+        <xs:sequence xmlns="http://www.w3.org/2001/XMLSchema">
+          <xs:element name="Code" type="xs:int" />
+          <xs:element name="Msg" type="xs:string" />
+          <xs:element name="Extra" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="TWRemConfigLogin">
+        <xs:sequence xmlns="http://www.w3.org/2001/XMLSchema">
+          <xs:element name="Empresa" type="xs:int" />
+          <xs:element name="Filial" type="xs:int" />
+          <xs:element name="Alias" type="xs:string" />
+          <xs:element name="Depto" type="xs:string" />
+          <xs:element name="Usuario" type="xs:string" />
+          <xs:element name="Senha" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+  </types>
+  <message name="DoLogin0Request">
+    <part name="Usuario" type="xs:string" />
+    <part name="Senha" type="xs:string" />
+    <part name="TokenId" type="xs:string" />
+  </message>
+  <message name="DoLogin0Response">
+    <part name="TokenId" type="xs:string" />
+    <part name="return" type="ns1:TWRemStatus" />
+  </message>
+  <message name="DoLoginAlt1Request">
+    <part name="ACfgLogin" type="ns1:TWRemConfigLogin" />
+    <part name="TokenId" type="xs:string" />
+  </message>
+  <message name="DoLoginAlt1Response">
+    <part name="TokenId" type="xs:string" />
+    <part name="return" type="ns1:TWRemStatus" />
+  </message>
+  <message name="DoLogout2Request">
+    <part name="TokenId" type="xs:string" />
+  </message>
+  <message name="DoLogout2Response">
+    <part name="return" type="ns1:TWRemStatus" />
+  </message>
+  <message name="CheckSession3Request">
+    <part name="TokenId" type="xs:string" />
+  </message>
+  <message name="CheckSession3Response">
+    <part name="return" type="ns1:TWRemStatus" />
+  </message>
+  <message name="GetServerHealth4Request">
+    <part name="TokenId" type="xs:string" />
+    <part name="jsonHealth" type="xs:string" />
+  </message>
+  <message name="GetServerHealth4Response">
+    <part name="jsonHealth" type="xs:string" />
+    <part name="return" type="ns1:TWRemStatus" />
+  </message>
+  <portType name="IWTpBase">
+    <operation name="DoLogin">
+      <input message="tns:DoLogin0Request" />
+      <output message="tns:DoLogin0Response" />
+    </operation>
+    <operation name="DoLoginAlt">
+      <input message="tns:DoLoginAlt1Request" />
+      <output message="tns:DoLoginAlt1Response" />
+    </operation>
+    <operation name="DoLogout">
+      <input message="tns:DoLogout2Request" />
+      <output message="tns:DoLogout2Response" />
+    </operation>
+    <operation name="CheckSession">
+      <input message="tns:CheckSession3Request" />
+      <output message="tns:CheckSession3Response" />
+    </operation>
+    <operation name="GetServerHealth">
+      <input message="tns:GetServerHealth4Request" />
+      <output message="tns:GetServerHealth4Response" />
+    </operation>
+  </portType>
+  <binding name="IWTpBasebinding" type="tns:IWTpBase">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="rpc" />
+    <operation name="DoLogin">
+      <soap:operation soapAction="urn:WTpBase-IWTpBase#DoLogin" style="rpc" />
+      <input>
+        <soap:body use="encoded" namespace="urn:WTpBase-IWTpBase" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </input>
+      <output>
+        <soap:body use="encoded" namespace="urn:WTpBase-IWTpBase" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </output>
+    </operation>
+    <operation name="DoLoginAlt">
+      <soap:operation soapAction="urn:WTpBase-IWTpBase#DoLoginAlt" style="rpc" />
+      <input>
+        <soap:body use="encoded" namespace="urn:WTpBase-IWTpBase" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </input>
+      <output>
+        <soap:body use="encoded" namespace="urn:WTpBase-IWTpBase" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </output>
+    </operation>
+    <operation name="DoLogout">
+      <soap:operation soapAction="urn:WTpBase-IWTpBase#DoLogout" style="rpc" />
+      <input>
+        <soap:body use="encoded" namespace="urn:WTpBase-IWTpBase" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </input>
+      <output>
+        <soap:body use="encoded" namespace="urn:WTpBase-IWTpBase" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </output>
+    </operation>
+    <operation name="CheckSession">
+      <soap:operation soapAction="urn:WTpBase-IWTpBase#CheckSession" style="rpc" />
+      <input>
+        <soap:body use="encoded" namespace="urn:WTpBase-IWTpBase" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </input>
+      <output>
+        <soap:body use="encoded" namespace="urn:WTpBase-IWTpBase" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </output>
+    </operation>
+    <operation name="GetServerHealth">
+      <soap:operation soapAction="urn:WTpBase-IWTpBase#GetServerHealth" style="rpc" />
+      <input>
+        <soap:body use="encoded" namespace="urn:WTpBase-IWTpBase" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </input>
+      <output>
+        <soap:body use="encoded" namespace="urn:WTpBase-IWTpBase" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </output>
+    </operation>
+  </binding>
+  <service name="IWTpBaseservice">
+    <port name="IWTpBasePort" binding="tns:IWTpBasebinding">
+      <soap:address location="https://sdk.erppronto.com.br:4027/soap/IWTpBase" />
+    </port>
+  </service>
+</definitions>

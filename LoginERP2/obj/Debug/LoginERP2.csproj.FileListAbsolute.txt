@@ -1,0 +1,14 @@
+E:\GitHub\LoginERP2\bin\Debug\LoginERP2.exe.config
+E:\GitHub\LoginERP2\bin\Debug\LoginERP2.exe
+E:\GitHub\LoginERP2\bin\Debug\LoginERP2.pdb
+E:\GitHub\LoginERP2\bin\Debug\WindowsInput.dll
+E:\GitHub\LoginERP2\bin\Debug\WindowsInput.xml
+E:\GitHub\LoginERP2\obj\Debug\LoginERP2.csprojAssemblyReference.cache
+E:\GitHub\LoginERP2\obj\Debug\LoginERP2.csproj.CoreCompileInputs.cache
+E:\GitHub\LoginERP2\obj\Debug\LoginERP2.csproj.CopyComplete
+E:\GitHub\LoginERP2\obj\Debug\LoginERP2.exe
+E:\GitHub\LoginERP2\obj\Debug\LoginERP2.pdb
+E:\GitHub\LoginERP2\bin\Debug\AutoItX3.dll
+E:\GitHub\LoginERP2\bin\Debug\AutoItX3_x64.dll
+E:\GitHub\LoginERP2\bin\Debug\AutoItX3.Assembly.dll
+E:\GitHub\LoginERP2\bin\Debug\AutoItX3.Assembly.xml

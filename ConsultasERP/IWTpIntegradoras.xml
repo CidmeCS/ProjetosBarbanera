@@ -1,0 +1,245 @@
+<?xml version="1.0"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:xs="http://www.w3.org/2001/XMLSchema" name="IWTpIntegradorasservice" targetNamespace="http://tempuri.org/" xmlns:tns="http://tempuri.org/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:ns1="urn:@:WTpBase" xmlns:ns2="urn:@:WTpIntegVendas">
+  <types>
+    <xs:schema targetNamespace="urn:@:WTpBase" xmlns="urn:@:WTpBase">
+      <xs:complexType name="TWRemStatus">
+        <sequence xmlns="http://www.w3.org/2001/XMLSchema">
+          <xs:element name="Code" type="xs:int"/>
+          <xs:element name="Msg" type="xs:string"/>
+          <xs:element name="Extra" type="xs:string"/>
+        </sequence>
+      </xs:complexType>
+      <xs:complexType name="TWRemPageable">
+        <sequence xmlns="http://www.w3.org/2001/XMLSchema">
+          <xs:element name="Pagina" type="xs:int"/>
+          <xs:element name="RegistrosPorPagina" type="xs:int"/>
+        </sequence>
+      </xs:complexType>
+    </xs:schema>
+    <xs:schema targetNamespace="urn:@:WTpIntegVendas" xmlns="urn:@:WTpIntegVendas">
+      <xs:complexType name="TWRemFiltroPedidoVenda">
+        <sequence xmlns="http://www.w3.org/2001/XMLSchema">
+          <xs:element name="Empresa" type="xs:short"/>
+          <xs:element name="Filial" type="xs:short"/>
+          <xs:element name="PedidoDe" type="xs:int"/>
+          <xs:element name="PedidoAte" type="xs:int"/>
+          <xs:element name="DataPedidoDe" type="xs:int"/>
+          <xs:element name="DataPedidoAte" type="xs:int"/>
+        </sequence>
+      </xs:complexType>
+    </xs:schema>
+  </types>
+  <message name="InsDadosInteg0Request">
+    <part name="TokenId" type="xs:string"/>
+    <part name="XmlDados" type="xs:string"/>
+  </message>
+  <message name="InsDadosInteg0Response">
+    <part name="return" type="ns1:TWRemStatus"/>
+  </message>
+  <message name="GetStatusInteg1Request">
+    <part name="TokenId" type="xs:string"/>
+    <part name="XmlDados" type="xs:string"/>
+    <part name="XmlRet" type="xs:string"/>
+  </message>
+  <message name="GetStatusInteg1Response">
+    <part name="XmlRet" type="xs:string"/>
+    <part name="return" type="ns1:TWRemStatus"/>
+  </message>
+  <message name="GetDadosInteg2Request">
+    <part name="TokenId" type="xs:string"/>
+    <part name="XmlDados" type="xs:string"/>
+    <part name="XmlRet" type="xs:string"/>
+  </message>
+  <message name="GetDadosInteg2Response">
+    <part name="XmlRet" type="xs:string"/>
+    <part name="return" type="ns1:TWRemStatus"/>
+  </message>
+  <message name="GetExpPedidosVenda3Request">
+    <part name="TokenId" type="xs:string"/>
+    <part name="Filtro" type="ns2:TWRemFiltroPedidoVenda"/>
+    <part name="XmlRet" type="xs:string"/>
+  </message>
+  <message name="GetExpPedidosVenda3Response">
+    <part name="XmlRet" type="xs:string"/>
+    <part name="return" type="ns1:TWRemStatus"/>
+  </message>
+  <message name="MarcaExpPedidoVendaProc4Request">
+    <part name="TokenId" type="xs:string"/>
+    <part name="empresa" type="xs:int"/>
+    <part name="filial" type="xs:int"/>
+    <part name="nro_pedido" type="xs:int"/>
+    <part name="seq_registro" type="xs:int"/>
+  </message>
+  <message name="MarcaExpPedidoVendaProc4Response">
+    <part name="return" type="ns1:TWRemStatus"/>
+  </message>
+  <message name="GetExpProdutosECommerce5Request">
+    <part name="TokenId" type="xs:string"/>
+    <part name="XmlRet" type="xs:string"/>
+    <part name="page" type="ns1:TWRemPageable"/>
+  </message>
+  <message name="GetExpProdutosECommerce5Response">
+    <part name="XmlRet" type="xs:string"/>
+    <part name="return" type="ns1:TWRemStatus"/>
+  </message>
+  <message name="MarcaExpProdutosECommerceProc6Request">
+    <part name="TokenId" type="xs:string"/>
+    <part name="empresa" type="xs:int"/>
+    <part name="filial" type="xs:int"/>
+    <part name="estab" type="xs:short"/>
+    <part name="depos" type="xs:short"/>
+    <part name="c_prod" type="xs:string"/>
+    <part name="seq_registro" type="xs:int"/>
+  </message>
+  <message name="MarcaExpProdutosECommerceProc6Response">
+    <part name="return" type="ns1:TWRemStatus"/>
+  </message>
+  <message name="Select7Request">
+    <part name="TokenId" type="xs:string"/>
+    <part name="ASelect" type="xs:string"/>
+    <part name="XmlRet" type="xs:string"/>
+    <part name="page" type="ns1:TWRemPageable"/>
+  </message>
+  <message name="Select7Response">
+    <part name="XmlRet" type="xs:string"/>
+    <part name="return" type="ns1:TWRemStatus"/>
+  </message>
+  <message name="Select28Request">
+    <part name="TokenId" type="xs:string"/>
+    <part name="ASenha" type="xs:string"/>
+    <part name="ASelect" type="xs:string"/>
+    <part name="XmlRet" type="xs:string"/>
+  </message>
+  <message name="Select28Response">
+    <part name="XmlRet" type="xs:string"/>
+    <part name="return" type="ns1:TWRemStatus"/>
+  </message>
+  <portType name="IWTpIntegradoras">
+    <operation name="InsDadosInteg">
+      <input message="tns:InsDadosInteg0Request"/>
+      <output message="tns:InsDadosInteg0Response"/>
+    </operation>
+    <operation name="GetStatusInteg">
+      <input message="tns:GetStatusInteg1Request"/>
+      <output message="tns:GetStatusInteg1Response"/>
+    </operation>
+    <operation name="GetDadosInteg">
+      <input message="tns:GetDadosInteg2Request"/>
+      <output message="tns:GetDadosInteg2Response"/>
+    </operation>
+    <operation name="GetExpPedidosVenda">
+      <input message="tns:GetExpPedidosVenda3Request"/>
+      <output message="tns:GetExpPedidosVenda3Response"/>
+    </operation>
+    <operation name="MarcaExpPedidoVendaProc">
+      <input message="tns:MarcaExpPedidoVendaProc4Request"/>
+      <output message="tns:MarcaExpPedidoVendaProc4Response"/>
+    </operation>
+    <operation name="GetExpProdutosECommerce">
+      <input message="tns:GetExpProdutosECommerce5Request"/>
+      <output message="tns:GetExpProdutosECommerce5Response"/>
+    </operation>
+    <operation name="MarcaExpProdutosECommerceProc">
+      <input message="tns:MarcaExpProdutosECommerceProc6Request"/>
+      <output message="tns:MarcaExpProdutosECommerceProc6Response"/>
+    </operation>
+    <operation name="Select">
+      <input message="tns:Select7Request"/>
+      <output message="tns:Select7Response"/>
+    </operation>
+    <operation name="Select2">
+      <input message="tns:Select28Request"/>
+      <output message="tns:Select28Response"/>
+    </operation>
+  </portType>
+  <binding name="IWTpIntegradorasbinding" type="tns:IWTpIntegradoras">
+    <binding xmlns="http://schemas.xmlsoap.org/wsdl/soap/" style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="InsDadosInteg">
+      <operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="urn:WTpIntegr-IWTpIntegradoras#InsDadosInteg" style="rpc"/>
+      <input>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:WTpIntegr-IWTpIntegradoras"/>
+      </input>
+      <output>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:WTpIntegr-IWTpIntegradoras"/>
+      </output>
+    </operation>
+    <operation name="GetStatusInteg">
+      <operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="urn:WTpIntegr-IWTpIntegradoras#GetStatusInteg" style="rpc"/>
+      <input>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:WTpIntegr-IWTpIntegradoras"/>
+      </input>
+      <output>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:WTpIntegr-IWTpIntegradoras"/>
+      </output>
+    </operation>
+    <operation name="GetDadosInteg">
+      <operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="urn:WTpIntegr-IWTpIntegradoras#GetDadosInteg" style="rpc"/>
+      <input>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:WTpIntegr-IWTpIntegradoras"/>
+      </input>
+      <output>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:WTpIntegr-IWTpIntegradoras"/>
+      </output>
+    </operation>
+    <operation name="GetExpPedidosVenda">
+      <operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="urn:WTpIntegr-IWTpIntegradoras#GetExpPedidosVenda" style="rpc"/>
+      <input>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:WTpIntegr-IWTpIntegradoras"/>
+      </input>
+      <output>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:WTpIntegr-IWTpIntegradoras"/>
+      </output>
+    </operation>
+    <operation name="MarcaExpPedidoVendaProc">
+      <operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="urn:WTpIntegr-IWTpIntegradoras#MarcaExpPedidoVendaProc" style="rpc"/>
+      <input>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:WTpIntegr-IWTpIntegradoras"/>
+      </input>
+      <output>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:WTpIntegr-IWTpIntegradoras"/>
+      </output>
+    </operation>
+    <operation name="GetExpProdutosECommerce">
+      <operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="urn:WTpIntegr-IWTpIntegradoras#GetExpProdutosECommerce" style="rpc"/>
+      <input>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:WTpIntegr-IWTpIntegradoras"/>
+      </input>
+      <output>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:WTpIntegr-IWTpIntegradoras"/>
+      </output>
+    </operation>
+    <operation name="MarcaExpProdutosECommerceProc">
+      <operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="urn:WTpIntegr-IWTpIntegradoras#MarcaExpProdutosECommerceProc" style="rpc"/>
+      <input>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:WTpIntegr-IWTpIntegradoras"/>
+      </input>
+      <output>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:WTpIntegr-IWTpIntegradoras"/>
+      </output>
+    </operation>
+    <operation name="Select">
+      <operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="urn:WTpIntegr-IWTpIntegradoras#Select" style="rpc"/>
+      <input>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:WTpIntegr-IWTpIntegradoras"/>
+      </input>
+      <output>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:WTpIntegr-IWTpIntegradoras"/>
+      </output>
+    </operation>
+    <operation name="Select2">
+      <operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="urn:WTpIntegr-IWTpIntegradoras#Select2" style="rpc"/>
+      <input>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:WTpIntegr-IWTpIntegradoras"/>
+      </input>
+      <output>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:WTpIntegr-IWTpIntegradoras"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="IWTpIntegradorasservice">
+    <port name="IWTpIntegradorasPort" binding="tns:IWTpIntegradorasbinding">
+      <address xmlns="http://schemas.xmlsoap.org/wsdl/soap/" location="https://sdk.erppronto.com.br:4027/soap/IWTpIntegradoras"/>
+    </port>
+  </service>
+</definitions>
+

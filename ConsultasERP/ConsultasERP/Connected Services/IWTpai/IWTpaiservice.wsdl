@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns1="urn:@:WTpBase" name="IWTpaiservice" targetNamespace="http://tempuri.org/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <xs:schema xmlns="urn:@:WTpBase" targetNamespace="urn:@:WTpBase">
+      <xs:complexType name="TWRemStatus">
+        <xs:sequence xmlns="http://www.w3.org/2001/XMLSchema">
+          <xs:element name="Code" type="xs:int" />
+          <xs:element name="Msg" type="xs:string" />
+          <xs:element name="Extra" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+  </types>
+  <message name="GeraSenhaErpPronto0Request">
+    <part name="TokenId" type="xs:string" />
+    <part name="ASenha" type="xs:string" />
+    <part name="pEmprCli" type="xs:short" />
+    <part name="pFiliCli" type="xs:short" />
+    <part name="pCliente" type="xs:double" />
+    <part name="pSolicitante" type="xs:string" />
+    <part name="pNrAtendimento" type="xs:string" />
+    <part name="pMotivo" type="xs:string" />
+  </message>
+  <message name="GeraSenhaErpPronto0Response">
+    <part name="ASenha" type="xs:string" />
+    <part name="return" type="ns1:TWRemStatus" />
+  </message>
+  <message name="GeraOsTPAI1Request">
+    <part name="TokenId" type="xs:string" />
+    <part name="pCliente" type="xs:double" />
+    <part name="pDescOcorrencia" type="xs:string" />
+    <part name="pReferencia" type="xs:string" />
+    <part name="pPrioridade" type="xs:short" />
+    <part name="pTipoOs" type="xs:string" />
+    <part name="pModulo" type="xs:string" />
+    <part name="pNroOsOrig" type="xs:int" />
+    <part name="pIndicador" type="xs:short" />
+    <part name="pDataAlvo" type="xs:int" />
+    <part name="pMotIndicador" type="xs:string" />
+    <part name="pMotDataAlvo" type="xs:string" />
+    <part name="pTipoProduto" type="xs:short" />
+    <part name="pSolicitante" type="xs:string" />
+    <part name="pEncerraFaseVRF" type="xs:boolean" />
+    <part name="pResponsavel" type="xs:string" />
+  </message>
+  <message name="GeraOsTPAI1Response">
+    <part name="return" type="ns1:TWRemStatus" />
+  </message>
+  <message name="AnexarDoc2Request">
+    <part name="TokenId" type="xs:string" />
+    <part name="pNroOs" type="xs:int" />
+    <part name="pNomeArquivo" type="xs:string" />
+    <part name="pConteudoB64" type="xs:string" />
+  </message>
+  <message name="AnexarDoc2Response">
+    <part name="return" type="ns1:TWRemStatus" />
+  </message>
+  <message name="AssociarClienteOs3Request">
+    <part name="TokenId" type="xs:string" />
+    <part name="pNroOs" type="xs:int" />
+    <part name="pCliente" type="xs:double" />
+    <part name="pSolicitante" type="xs:string" />
+    <part name="pTipoAtend" type="xs:short" />
+  </message>
+  <message name="AssociarClienteOs3Response">
+    <part name="return" type="ns1:TWRemStatus" />
+  </message>
+  <message name="DesassociarClienteOs4Request">
+    <part name="TokenId" type="xs:string" />
+    <part name="pNroOs" type="xs:int" />
+    <part name="pCliente" type="xs:double" />
+  </message>
+  <message name="DesassociarClienteOs4Response">
+    <part name="return" type="ns1:TWRemStatus" />
+  </message>
+  <message name="IncluiUsuario5Request">
+    <part name="TokenId" type="xs:string" />
+    <part name="pCliente" type="xs:double" />
+    <part name="pNome" type="xs:string" />
+    <part name="pDDD1" type="xs:short" />
+    <part name="pTelefone1" type="xs:int" />
+    <part name="pRamal1" type="xs:short" />
+    <part name="pDDD2" type="xs:short" />
+    <part name="pTelefone2" type="xs:int" />
+    <part name="pRamal2" type="xs:short" />
+    <part name="pEmail" type="xs:string" />
+    <part name="pLogin" type="xs:string" />
+  </message>
+  <message name="IncluiUsuario5Response">
+    <part name="return" type="ns1:TWRemStatus" />
+  </message>
+  <message name="AlteraUsuario6Request">
+    <part name="TokenId" type="xs:string" />
+    <part name="pCliente" type="xs:double" />
+    <part name="pNroUsuario" type="xs:short" />
+    <part name="pNome" type="xs:string" />
+    <part name="pDDD1" type="xs:short" />
+    <part name="pTelefone1" type="xs:int" />
+    <part name="pRamal1" type="xs:short" />
+    <part name="pDDD2" type="xs:short" />
+    <part name="pTelefone2" type="xs:int" />
+    <part name="pRamal2" type="xs:short" />
+    <part name="pEmail" type="xs:string" />
+    <part name="pLogin" type="xs:string" />
+  </message>
+  <message name="AlteraUsuario6Response">
+    <part name="return" type="ns1:TWRemStatus" />
+  </message>
+  <portType name="IWTpai">
+    <operation name="GeraSenhaErpPronto">
+      <input message="tns:GeraSenhaErpPronto0Request" />
+      <output message="tns:GeraSenhaErpPronto0Response" />
+    </operation>
+    <operation name="GeraOsTPAI">
+      <input message="tns:GeraOsTPAI1Request" />
+      <output message="tns:GeraOsTPAI1Response" />
+    </operation>
+    <operation name="AnexarDoc">
+      <input message="tns:AnexarDoc2Request" />
+      <output message="tns:AnexarDoc2Response" />
+    </operation>
+    <operation name="AssociarClienteOs">
+      <input message="tns:AssociarClienteOs3Request" />
+      <output message="tns:AssociarClienteOs3Response" />
+    </operation>
+    <operation name="DesassociarClienteOs">
+      <input message="tns:DesassociarClienteOs4Request" />
+      <output message="tns:DesassociarClienteOs4Response" />
+    </operation>
+    <operation name="IncluiUsuario">
+      <input message="tns:IncluiUsuario5Request" />
+      <output message="tns:IncluiUsuario5Response" />
+    </operation>
+    <operation name="AlteraUsuario">
+      <input message="tns:AlteraUsuario6Request" />
+      <output message="tns:AlteraUsuario6Response" />
+    </operation>
+  </portType>
+  <binding name="IWTpaibinding" type="tns:IWTpai">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="rpc" />
+    <operation name="GeraSenhaErpPronto">
+      <soap:operation soapAction="urn:WTpai-IWTpai#GeraSenhaErpPronto" style="rpc" />
+      <input>
+        <soap:body use="encoded" namespace="urn:WTpai-IWTpai" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </input>
+      <output>
+        <soap:body use="encoded" namespace="urn:WTpai-IWTpai" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </output>
+    </operation>
+    <operation name="GeraOsTPAI">
+      <soap:operation soapAction="urn:WTpai-IWTpai#GeraOsTPAI" style="rpc" />
+      <input>
+        <soap:body use="encoded" namespace="urn:WTpai-IWTpai" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </input>
+      <output>
+        <soap:body use="encoded" namespace="urn:WTpai-IWTpai" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </output>
+    </operation>
+    <operation name="AnexarDoc">
+      <soap:operation soapAction="urn:WTpai-IWTpai#AnexarDoc" style="rpc" />
+      <input>
+        <soap:body use="encoded" namespace="urn:WTpai-IWTpai" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </input>
+      <output>
+        <soap:body use="encoded" namespace="urn:WTpai-IWTpai" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </output>
+    </operation>
+    <operation name="AssociarClienteOs">
+      <soap:operation soapAction="urn:WTpai-IWTpai#AssociarClienteOs" style="rpc" />
+      <input>
+        <soap:body use="encoded" namespace="urn:WTpai-IWTpai" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </input>
+      <output>
+        <soap:body use="encoded" namespace="urn:WTpai-IWTpai" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </output>
+    </operation>
+    <operation name="DesassociarClienteOs">
+      <soap:operation soapAction="urn:WTpai-IWTpai#DesassociarClienteOs" style="rpc" />
+      <input>
+        <soap:body use="encoded" namespace="urn:WTpai-IWTpai" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </input>
+      <output>
+        <soap:body use="encoded" namespace="urn:WTpai-IWTpai" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </output>
+    </operation>
+    <operation name="IncluiUsuario">
+      <soap:operation soapAction="urn:WTpai-IWTpai#IncluiUsuario" style="rpc" />
+      <input>
+        <soap:body use="encoded" namespace="urn:WTpai-IWTpai" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </input>
+      <output>
+        <soap:body use="encoded" namespace="urn:WTpai-IWTpai" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </output>
+    </operation>
+    <operation name="AlteraUsuario">
+      <soap:operation soapAction="urn:WTpai-IWTpai#AlteraUsuario" style="rpc" />
+      <input>
+        <soap:body use="encoded" namespace="urn:WTpai-IWTpai" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </input>
+      <output>
+        <soap:body use="encoded" namespace="urn:WTpai-IWTpai" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </output>
+    </operation>
+  </binding>
+  <service name="IWTpaiservice">
+    <port name="IWTpaiPort" binding="tns:IWTpaibinding">
+      <soap:address location="https://sdk.erppronto.com.br:4027/soap/IWTpai" />
+    </port>
+  </service>
+</definitions>

@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ns2="urn:@:WTpBase" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns1="urn:@:WTpIntegVendas" name="IWTpIntegrVendasservice" targetNamespace="http://tempuri.org/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <xs:schema xmlns="urn:@:WTpIntegVendas" targetNamespace="urn:@:WTpIntegVendas">
+      <xs:complexType name="TWRemFiltroPedidoVenda">
+        <xs:sequence xmlns="http://www.w3.org/2001/XMLSchema">
+          <xs:element name="Empresa" type="xs:short" />
+          <xs:element name="Filial" type="xs:short" />
+          <xs:element name="PedidoDe" type="xs:int" />
+          <xs:element name="PedidoAte" type="xs:int" />
+          <xs:element name="DataPedidoDe" type="xs:int" />
+          <xs:element name="DataPedidoAte" type="xs:int" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="TWRemFiltroProduto">
+        <xs:sequence xmlns="http://www.w3.org/2001/XMLSchema">
+          <xs:element name="Empresa" type="xs:short" />
+          <xs:element name="Filial" type="xs:short" />
+          <xs:element name="Estab" type="xs:short" />
+          <xs:element name="Depos" type="xs:short" />
+          <xs:element name="GrupoEstoque" type="xs:int" />
+          <xs:element name="CodigoProduto" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="TWRemFiltroProdutoECom">
+        <xs:complexContent mixed="false">
+          <xs:extension base="ns1:TWRemFiltroProduto">
+            <xs:sequence xmlns="http://www.w3.org/2001/XMLSchema">
+              <xs:element name="ApenasECom" type="xs:boolean" />
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="TWRemFiltroCliente">
+        <xs:sequence xmlns="http://www.w3.org/2001/XMLSchema">
+          <xs:element name="Empresa" type="xs:short" />
+          <xs:element name="Filial" type="xs:short" />
+          <xs:element name="ClienteDe" type="xs:double" />
+          <xs:element name="ClienteAte" type="xs:double" />
+          <xs:element name="Tipos" type="xs:string" />
+          <xs:element name="Nome" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="TWRemFiltroVinculoProduto">
+        <xs:sequence xmlns="http://www.w3.org/2001/XMLSchema">
+          <xs:element name="Empresa" type="xs:short" />
+          <xs:element name="Filial" type="xs:short" />
+          <xs:element name="Estab" type="xs:short" />
+          <xs:element name="Depos" type="xs:short" />
+          <xs:element name="CodigoProduto" type="xs:string" />
+          <xs:element name="ClienteFornec" type="xs:double" />
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+    <xs:schema xmlns="urn:@:WTpBase" targetNamespace="urn:@:WTpBase">
+      <xs:complexType name="TWRemPageable">
+        <xs:sequence xmlns="http://www.w3.org/2001/XMLSchema">
+          <xs:element name="Pagina" type="xs:int" />
+          <xs:element name="RegistrosPorPagina" type="xs:int" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="TWRemStatus">
+        <xs:sequence xmlns="http://www.w3.org/2001/XMLSchema">
+          <xs:element name="Code" type="xs:int" />
+          <xs:element name="Msg" type="xs:string" />
+          <xs:element name="Extra" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="TWRemFiltroBasico">
+        <xs:sequence xmlns="http://www.w3.org/2001/XMLSchema">
+          <xs:element name="Empresa" type="xs:short" />
+          <xs:element name="Filial" type="xs:short" />
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+  </types>
+  <message name="GetPedidosVenda0Request">
+    <part name="TokenId" type="xs:string" />
+    <part name="Filtro" type="ns1:TWRemFiltroPedidoVenda" />
+    <part name="XmlRet" type="xs:string" />
+    <part name="page" type="ns2:TWRemPageable" />
+  </message>
+  <message name="GetPedidosVenda0Response">
+    <part name="XmlRet" type="xs:string" />
+    <part name="return" type="ns2:TWRemStatus" />
+  </message>
+  <message name="GetNotasVenda1Request">
+    <part name="TokenId" type="xs:string" />
+    <part name="Filtro" type="ns1:TWRemFiltroPedidoVenda" />
+    <part name="XmlRet" type="xs:string" />
+    <part name="page" type="ns2:TWRemPageable" />
+  </message>
+  <message name="GetNotasVenda1Response">
+    <part name="XmlRet" type="xs:string" />
+    <part name="return" type="ns2:TWRemStatus" />
+  </message>
+  <message name="GetCadProdutos2Request">
+    <part name="TokenId" type="xs:string" />
+    <part name="Filtro" type="ns1:TWRemFiltroProduto" />
+    <part name="XmlRet" type="xs:string" />
+    <part name="page" type="ns2:TWRemPageable" />
+  </message>
+  <message name="GetCadProdutos2Response">
+    <part name="XmlRet" type="xs:string" />
+    <part name="return" type="ns2:TWRemStatus" />
+  </message>
+  <message name="GetCadClientes3Request">
+    <part name="TokenId" type="xs:string" />
+    <part name="Filtro" type="ns1:TWRemFiltroCliente" />
+    <part name="XmlRet" type="xs:string" />
+    <part name="page" type="ns2:TWRemPageable" />
+  </message>
+  <message name="GetCadClientes3Response">
+    <part name="XmlRet" type="xs:string" />
+    <part name="return" type="ns2:TWRemStatus" />
+  </message>
+  <message name="GetCadVendedores4Request">
+    <part name="TokenId" type="xs:string" />
+    <part name="Filtro" type="ns2:TWRemFiltroBasico" />
+    <part name="XmlRet" type="xs:string" />
+    <part name="page" type="ns2:TWRemPageable" />
+  </message>
+  <message name="GetCadVendedores4Response">
+    <part name="XmlRet" type="xs:string" />
+    <part name="return" type="ns2:TWRemStatus" />
+  </message>
+  <message name="GetVinculoProduto5Request">
+    <part name="TokenId" type="xs:string" />
+    <part name="Filtro" type="ns1:TWRemFiltroVinculoProduto" />
+    <part name="XmlRet" type="xs:string" />
+    <part name="page" type="ns2:TWRemPageable" />
+  </message>
+  <message name="GetVinculoProduto5Response">
+    <part name="XmlRet" type="xs:string" />
+    <part name="return" type="ns2:TWRemStatus" />
+  </message>
+  <message name="GetSaldoProdutosECommerce6Request">
+    <part name="TokenId" type="xs:string" />
+    <part name="Filtro" type="ns1:TWRemFiltroProdutoECom" />
+    <part name="XmlRet" type="xs:string" />
+    <part name="page" type="ns2:TWRemPageable" />
+  </message>
+  <message name="GetSaldoProdutosECommerce6Response">
+    <part name="XmlRet" type="xs:string" />
+    <part name="return" type="ns2:TWRemStatus" />
+  </message>
+  <message name="CriaProdutoViaFicha7Request">
+    <part name="TokenId" type="xs:string" />
+    <part name="Ficha" type="xs:int" />
+    <part name="Versao" type="xs:short" />
+    <part name="XmlParams" type="xs:string" />
+    <part name="XmlRet" type="xs:string" />
+  </message>
+  <message name="CriaProdutoViaFicha7Response">
+    <part name="XmlRet" type="xs:string" />
+    <part name="return" type="ns2:TWRemStatus" />
+  </message>
+  <portType name="IWTpIntegrVendas">
+    <operation name="GetPedidosVenda">
+      <input message="tns:GetPedidosVenda0Request" />
+      <output message="tns:GetPedidosVenda0Response" />
+    </operation>
+    <operation name="GetNotasVenda">
+      <input message="tns:GetNotasVenda1Request" />
+      <output message="tns:GetNotasVenda1Response" />
+    </operation>
+    <operation name="GetCadProdutos">
+      <input message="tns:GetCadProdutos2Request" />
+      <output message="tns:GetCadProdutos2Response" />
+    </operation>
+    <operation name="GetCadClientes">
+      <input message="tns:GetCadClientes3Request" />
+      <output message="tns:GetCadClientes3Response" />
+    </operation>
+    <operation name="GetCadVendedores">
+      <input message="tns:GetCadVendedores4Request" />
+      <output message="tns:GetCadVendedores4Response" />
+    </operation>
+    <operation name="GetVinculoProduto">
+      <input message="tns:GetVinculoProduto5Request" />
+      <output message="tns:GetVinculoProduto5Response" />
+    </operation>
+    <operation name="GetSaldoProdutosECommerce">
+      <input message="tns:GetSaldoProdutosECommerce6Request" />
+      <output message="tns:GetSaldoProdutosECommerce6Response" />
+    </operation>
+    <operation name="CriaProdutoViaFicha">
+      <input message="tns:CriaProdutoViaFicha7Request" />
+      <output message="tns:CriaProdutoViaFicha7Response" />
+    </operation>
+  </portType>
+  <binding name="IWTpIntegrVendasbinding" type="tns:IWTpIntegrVendas">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="rpc" />
+    <operation name="GetPedidosVenda">
+      <soap:operation soapAction="urn:WTpIntegVendas-IWTpIntegrVendas#GetPedidosVenda" style="rpc" />
+      <input>
+        <soap:body use="encoded" namespace="urn:WTpIntegVendas-IWTpIntegrVendas" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </input>
+      <output>
+        <soap:body use="encoded" namespace="urn:WTpIntegVendas-IWTpIntegrVendas" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </output>
+    </operation>
+    <operation name="GetNotasVenda">
+      <soap:operation soapAction="urn:WTpIntegVendas-IWTpIntegrVendas#GetNotasVenda" style="rpc" />
+      <input>
+        <soap:body use="encoded" namespace="urn:WTpIntegVendas-IWTpIntegrVendas" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </input>
+      <output>
+        <soap:body use="encoded" namespace="urn:WTpIntegVendas-IWTpIntegrVendas" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </output>
+    </operation>
+    <operation name="GetCadProdutos">
+      <soap:operation soapAction="urn:WTpIntegVendas-IWTpIntegrVendas#GetCadProdutos" style="rpc" />
+      <input>
+        <soap:body use="encoded" namespace="urn:WTpIntegVendas-IWTpIntegrVendas" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </input>
+      <output>
+        <soap:body use="encoded" namespace="urn:WTpIntegVendas-IWTpIntegrVendas" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </output>
+    </operation>
+    <operation name="GetCadClientes">
+      <soap:operation soapAction="urn:WTpIntegVendas-IWTpIntegrVendas#GetCadClientes" style="rpc" />
+      <input>
+        <soap:body use="encoded" namespace="urn:WTpIntegVendas-IWTpIntegrVendas" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </input>
+      <output>
+        <soap:body use="encoded" namespace="urn:WTpIntegVendas-IWTpIntegrVendas" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </output>
+    </operation>
+    <operation name="GetCadVendedores">
+      <soap:operation soapAction="urn:WTpIntegVendas-IWTpIntegrVendas#GetCadVendedores" style="rpc" />
+      <input>
+        <soap:body use="encoded" namespace="urn:WTpIntegVendas-IWTpIntegrVendas" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </input>
+      <output>
+        <soap:body use="encoded" namespace="urn:WTpIntegVendas-IWTpIntegrVendas" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </output>
+    </operation>
+    <operation name="GetVinculoProduto">
+      <soap:operation soapAction="urn:WTpIntegVendas-IWTpIntegrVendas#GetVinculoProduto" style="rpc" />
+      <input>
+        <soap:body use="encoded" namespace="urn:WTpIntegVendas-IWTpIntegrVendas" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </input>
+      <output>
+        <soap:body use="encoded" namespace="urn:WTpIntegVendas-IWTpIntegrVendas" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </output>
+    </operation>
+    <operation name="GetSaldoProdutosECommerce">
+      <soap:operation soapAction="urn:WTpIntegVendas-IWTpIntegrVendas#GetSaldoProdutosECommerce" style="rpc" />
+      <input>
+        <soap:body use="encoded" namespace="urn:WTpIntegVendas-IWTpIntegrVendas" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </input>
+      <output>
+        <soap:body use="encoded" namespace="urn:WTpIntegVendas-IWTpIntegrVendas" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </output>
+    </operation>
+    <operation name="CriaProdutoViaFicha">
+      <soap:operation soapAction="urn:WTpIntegVendas-IWTpIntegrVendas#CriaProdutoViaFicha" style="rpc" />
+      <input>
+        <soap:body use="encoded" namespace="urn:WTpIntegVendas-IWTpIntegrVendas" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </input>
+      <output>
+        <soap:body use="encoded" namespace="urn:WTpIntegVendas-IWTpIntegrVendas" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </output>
+    </operation>
+  </binding>
+  <service name="IWTpIntegrVendasservice">
+    <port name="IWTpIntegrVendasPort" binding="tns:IWTpIntegrVendasbinding">
+      <soap:address location="https://sdk.erppronto.com.br:4027/soap/IWTpIntegrVendas" />
+    </port>
+  </service>
+</definitions>

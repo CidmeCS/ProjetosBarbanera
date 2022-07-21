@@ -1,0 +1,98 @@
+<?xml version="1.0"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:xs="http://www.w3.org/2001/XMLSchema" name="IWSDLPublishservice" targetNamespace="http://tempuri.org/" xmlns:tns="http://tempuri.org/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:ns1="urn:Soap.InvokeRegistry">
+  <types>
+    <xs:schema targetNamespace="urn:Soap.InvokeRegistry" xmlns="urn:Soap.InvokeRegistry">
+      <xs:complexType name="InvStringDynArray">
+        <xs:complexContent>
+          <xs:restriction base="soapenc:Array">
+            <sequence xmlns="http://www.w3.org/2001/XMLSchema"/>
+            <xs:attribute ref="soapenc:arrayType" n1:arrayType="xs:string[]" xmlns:n1="http://schemas.xmlsoap.org/wsdl/"/>
+          </xs:restriction>
+        </xs:complexContent>
+      </xs:complexType>
+    </xs:schema>
+  </types>
+  <message name="GetPortTypeList0Request"/>
+  <message name="GetPortTypeList0Response">
+    <part name="return" type="ns1:InvStringDynArray"/>
+  </message>
+  <message name="GetWSDLForPortType1Request">
+    <part name="PortType" type="xs:string"/>
+  </message>
+  <message name="GetWSDLForPortType1Response">
+    <part name="return" type="xs:string"/>
+  </message>
+  <message name="GetTypeSystemsList2Request"/>
+  <message name="GetTypeSystemsList2Response">
+    <part name="return" type="ns1:InvStringDynArray"/>
+  </message>
+  <message name="GetXSDForTypeSystem3Request">
+    <part name="TypeSystem" type="xs:string"/>
+  </message>
+  <message name="GetXSDForTypeSystem3Response">
+    <part name="return" type="xs:string"/>
+  </message>
+  <portType name="IWSDLPublish">
+    <operation name="GetPortTypeList">
+      <input message="tns:GetPortTypeList0Request"/>
+      <output message="tns:GetPortTypeList0Response"/>
+    </operation>
+    <operation name="GetWSDLForPortType">
+      <input message="tns:GetWSDLForPortType1Request"/>
+      <output message="tns:GetWSDLForPortType1Response"/>
+    </operation>
+    <operation name="GetTypeSystemsList">
+      <input message="tns:GetTypeSystemsList2Request"/>
+      <output message="tns:GetTypeSystemsList2Response"/>
+    </operation>
+    <operation name="GetXSDForTypeSystem">
+      <input message="tns:GetXSDForTypeSystem3Request"/>
+      <output message="tns:GetXSDForTypeSystem3Response"/>
+    </operation>
+  </portType>
+  <binding name="IWSDLPublishbinding" type="tns:IWSDLPublish">
+    <binding xmlns="http://schemas.xmlsoap.org/wsdl/soap/" style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="GetPortTypeList">
+      <operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="http://www.borland.com/namespaces/Types-IWSDLPublish" style="rpc"/>
+      <input>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://www.borland.com/namespaces/Types"/>
+      </input>
+      <output>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://www.borland.com/namespaces/Types"/>
+      </output>
+    </operation>
+    <operation name="GetWSDLForPortType">
+      <operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="http://www.borland.com/namespaces/Types-IWSDLPublish" style="rpc"/>
+      <input>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://www.borland.com/namespaces/Types"/>
+      </input>
+      <output>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://www.borland.com/namespaces/Types"/>
+      </output>
+    </operation>
+    <operation name="GetTypeSystemsList">
+      <operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="http://www.borland.com/namespaces/Types-IWSDLPublish" style="rpc"/>
+      <input>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://www.borland.com/namespaces/Types"/>
+      </input>
+      <output>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://www.borland.com/namespaces/Types"/>
+      </output>
+    </operation>
+    <operation name="GetXSDForTypeSystem">
+      <operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="http://www.borland.com/namespaces/Types-IWSDLPublish" style="rpc"/>
+      <input>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://www.borland.com/namespaces/Types"/>
+      </input>
+      <output>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://www.borland.com/namespaces/Types"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="IWSDLPublishservice">
+    <port name="IWSDLPublishPort" binding="tns:IWSDLPublishbinding">
+      <address xmlns="http://schemas.xmlsoap.org/wsdl/soap/" location="https://sdk.erppronto.com.br:4027/soap/IWSDLPublish"/>
+    </port>
+  </service>
+</definitions>
+

@@ -1,0 +1,328 @@
+<?xml version="1.0"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:xs="http://www.w3.org/2001/XMLSchema" name="IWTpTWXservice" targetNamespace="http://tempuri.org/" xmlns:tns="http://tempuri.org/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:ns1="urn:@:WTpBase">
+  <types>
+    <xs:schema targetNamespace="urn:@:WTpBase" xmlns="urn:@:WTpBase">
+      <xs:complexType name="TWRemPageable">
+        <sequence xmlns="http://www.w3.org/2001/XMLSchema">
+          <xs:element name="Pagina" type="xs:int"/>
+          <xs:element name="RegistrosPorPagina" type="xs:int"/>
+        </sequence>
+      </xs:complexType>
+      <xs:complexType name="TWRemStatus">
+        <sequence xmlns="http://www.w3.org/2001/XMLSchema">
+          <xs:element name="Code" type="xs:int"/>
+          <xs:element name="Msg" type="xs:string"/>
+          <xs:element name="Extra" type="xs:string"/>
+        </sequence>
+      </xs:complexType>
+    </xs:schema>
+  </types>
+  <message name="ImportProdutos0Request">
+    <part name="TokenId" type="xs:string"/>
+    <part name="EmpresaCli" type="xs:short"/>
+    <part name="FilialCli" type="xs:short"/>
+    <part name="Estab" type="xs:short"/>
+    <part name="Deposito" type="xs:short"/>
+    <part name="CodigoProd" type="xs:string"/>
+    <part name="DataAlter" type="xs:int"/>
+    <part name="FaixaGrupo1De" type="xs:int"/>
+    <part name="FaixaGrupo1Ate" type="xs:int"/>
+    <part name="FaixaGrupo2De" type="xs:int"/>
+    <part name="FaixaGrupo2Ate" type="xs:int"/>
+    <part name="XmlRet" type="xs:string"/>
+    <part name="page" type="ns1:TWRemPageable"/>
+  </message>
+  <message name="ImportProdutos0Response">
+    <part name="XmlRet" type="xs:string"/>
+    <part name="return" type="ns1:TWRemStatus"/>
+  </message>
+  <message name="ImportPedidos1Request">
+    <part name="TokenId" type="xs:string"/>
+    <part name="EmpresaCli" type="xs:short"/>
+    <part name="FilialCli" type="xs:short"/>
+    <part name="DataPed" type="xs:int"/>
+    <part name="XmlRet" type="xs:string"/>
+    <part name="page" type="ns1:TWRemPageable"/>
+  </message>
+  <message name="ImportPedidos1Response">
+    <part name="XmlRet" type="xs:string"/>
+    <part name="return" type="ns1:TWRemStatus"/>
+  </message>
+  <message name="ImportRecebimento2Request">
+    <part name="TokenId" type="xs:string"/>
+    <part name="EmpresaCli" type="xs:short"/>
+    <part name="FilialCli" type="xs:short"/>
+    <part name="DataMovto" type="xs:int"/>
+    <part name="Estab" type="xs:short"/>
+    <part name="Deposito" type="xs:short"/>
+    <part name="GrupoDe" type="xs:int"/>
+    <part name="GrupoAte" type="xs:int"/>
+    <part name="Rodada" type="xs:short"/>
+    <part name="XmlRet" type="xs:string"/>
+    <part name="page" type="ns1:TWRemPageable"/>
+  </message>
+  <message name="ImportRecebimento2Response">
+    <part name="XmlRet" type="xs:string"/>
+    <part name="return" type="ns1:TWRemStatus"/>
+  </message>
+  <message name="ImportFili3Request">
+    <part name="TokenId" type="xs:string"/>
+    <part name="EmpresaCli" type="xs:short"/>
+    <part name="FilialCli" type="xs:short"/>
+    <part name="XmlRet" type="xs:string"/>
+    <part name="page" type="ns1:TWRemPageable"/>
+  </message>
+  <message name="ImportFili3Response">
+    <part name="XmlRet" type="xs:string"/>
+    <part name="return" type="ns1:TWRemStatus"/>
+  </message>
+  <message name="ImportClientes4Request">
+    <part name="TokenId" type="xs:string"/>
+    <part name="EmpresaCli" type="xs:short"/>
+    <part name="FilialCli" type="xs:short"/>
+    <part name="Cliente" type="xs:double"/>
+    <part name="DataAlter" type="xs:int"/>
+    <part name="XmlRet" type="xs:string"/>
+    <part name="page" type="ns1:TWRemPageable"/>
+  </message>
+  <message name="ImportClientes4Response">
+    <part name="XmlRet" type="xs:string"/>
+    <part name="return" type="ns1:TWRemStatus"/>
+  </message>
+  <message name="ImportFornecedores5Request">
+    <part name="TokenId" type="xs:string"/>
+    <part name="EmpresaCli" type="xs:short"/>
+    <part name="FilialCli" type="xs:short"/>
+    <part name="Fornec" type="xs:double"/>
+    <part name="DataAlter" type="xs:int"/>
+    <part name="XmlRet" type="xs:string"/>
+    <part name="page" type="ns1:TWRemPageable"/>
+  </message>
+  <message name="ImportFornecedores5Response">
+    <part name="XmlRet" type="xs:string"/>
+    <part name="return" type="ns1:TWRemStatus"/>
+  </message>
+  <message name="ImportTransportadoras6Request">
+    <part name="TokenId" type="xs:string"/>
+    <part name="EmpresaCli" type="xs:short"/>
+    <part name="FilialCli" type="xs:short"/>
+    <part name="Fornec" type="xs:double"/>
+    <part name="DataAlter" type="xs:int"/>
+    <part name="XmlRet" type="xs:string"/>
+    <part name="page" type="ns1:TWRemPageable"/>
+  </message>
+  <message name="ImportTransportadoras6Response">
+    <part name="XmlRet" type="xs:string"/>
+    <part name="return" type="ns1:TWRemStatus"/>
+  </message>
+  <message name="ConsultaStatusOP7Request">
+    <part name="TokenId" type="xs:string"/>
+    <part name="EmpresaCli" type="xs:short"/>
+    <part name="FilialCli" type="xs:short"/>
+    <part name="NrOP" type="xs:int"/>
+    <part name="XmlRet" type="xs:string"/>
+  </message>
+  <message name="ConsultaStatusOP7Response">
+    <part name="XmlRet" type="xs:string"/>
+    <part name="return" type="ns1:TWRemStatus"/>
+  </message>
+  <message name="ImportNFs8Request">
+    <part name="TokenId" type="xs:string"/>
+    <part name="EmpresaCli" type="xs:short"/>
+    <part name="FilialCli" type="xs:short"/>
+    <part name="DataMovto" type="xs:int"/>
+    <part name="DataAlter" type="xs:int"/>
+    <part name="NotaFiscal" type="xs:int"/>
+    <part name="Serie" type="xs:string"/>
+    <part name="Pedido" type="xs:int"/>
+    <part name="XmlRet" type="xs:string"/>
+    <part name="page" type="ns1:TWRemPageable"/>
+  </message>
+  <message name="ImportNFs8Response">
+    <part name="XmlRet" type="xs:string"/>
+    <part name="return" type="ns1:TWRemStatus"/>
+  </message>
+  <message name="ImportProducao9Request">
+    <part name="TokenId" type="xs:string"/>
+    <part name="Backflush" type="xs:string"/>
+    <part name="EmpresaCli" type="xs:short"/>
+    <part name="FilialCli" type="xs:short"/>
+    <part name="GrupoDe" type="xs:int"/>
+    <part name="GrupoAte" type="xs:int"/>
+    <part name="DataAlter" type="xs:int"/>
+    <part name="XmlRet" type="xs:string"/>
+    <part name="page" type="ns1:TWRemPageable"/>
+  </message>
+  <message name="ImportProducao9Response">
+    <part name="XmlRet" type="xs:string"/>
+    <part name="return" type="ns1:TWRemStatus"/>
+  </message>
+  <message name="GetSeqApont10Request">
+    <part name="TokenId" type="xs:string"/>
+    <part name="Tabela" type="xs:string"/>
+    <part name="EmpresaCli" type="xs:short"/>
+    <part name="FilialCli" type="xs:short"/>
+    <part name="NrOP" type="xs:int"/>
+    <part name="SeqOperacao" type="xs:short"/>
+    <part name="Operacao" type="xs:string"/>
+    <part name="XmlRet" type="xs:string"/>
+  </message>
+  <message name="GetSeqApont10Response">
+    <part name="XmlRet" type="xs:string"/>
+    <part name="return" type="ns1:TWRemStatus"/>
+  </message>
+  <portType name="IWTpTWX">
+    <operation name="ImportProdutos">
+      <input message="tns:ImportProdutos0Request"/>
+      <output message="tns:ImportProdutos0Response"/>
+    </operation>
+    <operation name="ImportPedidos">
+      <input message="tns:ImportPedidos1Request"/>
+      <output message="tns:ImportPedidos1Response"/>
+    </operation>
+    <operation name="ImportRecebimento">
+      <input message="tns:ImportRecebimento2Request"/>
+      <output message="tns:ImportRecebimento2Response"/>
+    </operation>
+    <operation name="ImportFili">
+      <input message="tns:ImportFili3Request"/>
+      <output message="tns:ImportFili3Response"/>
+    </operation>
+    <operation name="ImportClientes">
+      <input message="tns:ImportClientes4Request"/>
+      <output message="tns:ImportClientes4Response"/>
+    </operation>
+    <operation name="ImportFornecedores">
+      <input message="tns:ImportFornecedores5Request"/>
+      <output message="tns:ImportFornecedores5Response"/>
+    </operation>
+    <operation name="ImportTransportadoras">
+      <input message="tns:ImportTransportadoras6Request"/>
+      <output message="tns:ImportTransportadoras6Response"/>
+    </operation>
+    <operation name="ConsultaStatusOP">
+      <input message="tns:ConsultaStatusOP7Request"/>
+      <output message="tns:ConsultaStatusOP7Response"/>
+    </operation>
+    <operation name="ImportNFs">
+      <input message="tns:ImportNFs8Request"/>
+      <output message="tns:ImportNFs8Response"/>
+    </operation>
+    <operation name="ImportProducao">
+      <input message="tns:ImportProducao9Request"/>
+      <output message="tns:ImportProducao9Response"/>
+    </operation>
+    <operation name="GetSeqApont">
+      <input message="tns:GetSeqApont10Request"/>
+      <output message="tns:GetSeqApont10Response"/>
+    </operation>
+  </portType>
+  <binding name="IWTpTWXbinding" type="tns:IWTpTWX">
+    <binding xmlns="http://schemas.xmlsoap.org/wsdl/soap/" style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="ImportProdutos">
+      <operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="urn:WTpTWX-IWTpTWX#ImportProdutos" style="rpc"/>
+      <input>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:WTpTWX-IWTpTWX"/>
+      </input>
+      <output>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:WTpTWX-IWTpTWX"/>
+      </output>
+    </operation>
+    <operation name="ImportPedidos">
+      <operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="urn:WTpTWX-IWTpTWX#ImportPedidos" style="rpc"/>
+      <input>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:WTpTWX-IWTpTWX"/>
+      </input>
+      <output>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:WTpTWX-IWTpTWX"/>
+      </output>
+    </operation>
+    <operation name="ImportRecebimento">
+      <operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="urn:WTpTWX-IWTpTWX#ImportRecebimento" style="rpc"/>
+      <input>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:WTpTWX-IWTpTWX"/>
+      </input>
+      <output>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:WTpTWX-IWTpTWX"/>
+      </output>
+    </operation>
+    <operation name="ImportFili">
+      <operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="urn:WTpTWX-IWTpTWX#ImportFili" style="rpc"/>
+      <input>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:WTpTWX-IWTpTWX"/>
+      </input>
+      <output>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:WTpTWX-IWTpTWX"/>
+      </output>
+    </operation>
+    <operation name="ImportClientes">
+      <operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="urn:WTpTWX-IWTpTWX#ImportClientes" style="rpc"/>
+      <input>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:WTpTWX-IWTpTWX"/>
+      </input>
+      <output>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:WTpTWX-IWTpTWX"/>
+      </output>
+    </operation>
+    <operation name="ImportFornecedores">
+      <operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="urn:WTpTWX-IWTpTWX#ImportFornecedores" style="rpc"/>
+      <input>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:WTpTWX-IWTpTWX"/>
+      </input>
+      <output>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:WTpTWX-IWTpTWX"/>
+      </output>
+    </operation>
+    <operation name="ImportTransportadoras">
+      <operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="urn:WTpTWX-IWTpTWX#ImportTransportadoras" style="rpc"/>
+      <input>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:WTpTWX-IWTpTWX"/>
+      </input>
+      <output>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:WTpTWX-IWTpTWX"/>
+      </output>
+    </operation>
+    <operation name="ConsultaStatusOP">
+      <operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="urn:WTpTWX-IWTpTWX#ConsultaStatusOP" style="rpc"/>
+      <input>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:WTpTWX-IWTpTWX"/>
+      </input>
+      <output>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:WTpTWX-IWTpTWX"/>
+      </output>
+    </operation>
+    <operation name="ImportNFs">
+      <operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="urn:WTpTWX-IWTpTWX#ImportNFs" style="rpc"/>
+      <input>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:WTpTWX-IWTpTWX"/>
+      </input>
+      <output>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:WTpTWX-IWTpTWX"/>
+      </output>
+    </operation>
+    <operation name="ImportProducao">
+      <operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="urn:WTpTWX-IWTpTWX#ImportProducao" style="rpc"/>
+      <input>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:WTpTWX-IWTpTWX"/>
+      </input>
+      <output>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:WTpTWX-IWTpTWX"/>
+      </output>
+    </operation>
+    <operation name="GetSeqApont">
+      <operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="urn:WTpTWX-IWTpTWX#GetSeqApont" style="rpc"/>
+      <input>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:WTpTWX-IWTpTWX"/>
+      </input>
+      <output>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:WTpTWX-IWTpTWX"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="IWTpTWXservice">
+    <port name="IWTpTWXPort" binding="tns:IWTpTWXbinding">
+      <address xmlns="http://schemas.xmlsoap.org/wsdl/soap/" location="https://sdk.erppronto.com.br:4027/soap/IWTpTWX"/>
+    </port>
+  </service>
+</definitions>
+

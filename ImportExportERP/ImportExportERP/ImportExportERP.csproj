@@ -1,0 +1,509 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.EntityFrameworkCore.Design.3.1.3\build\net461\Microsoft.EntityFrameworkCore.Design.props" Condition="Exists('..\packages\Microsoft.EntityFrameworkCore.Design.3.1.3\build\net461\Microsoft.EntityFrameworkCore.Design.props')" />
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{6EF287D2-F021-4664-953E-008A5D501905}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>ImportExportERP</RootNamespace>
+    <AssemblyName>ImportExportERP</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>ImportExportERP.Program</StartupObject>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>arrow_bottom_15602.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AutoItX3.Assembly, Version=3.0.0.0, Culture=neutral, PublicKeyToken=a646454c8d475470, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoItX.Dotnet.3.3.14.5\lib\AutoItX3.Assembly.dll</HintPath>
+    </Reference>
+    <Reference Include="AvalonDock">
+      <HintPath>C:\Program Files (x86)\Ranorex\Studio\Bin\AvalonDock.dll</HintPath>
+    </Reference>
+    <Reference Include="AvalonDock.Themes">
+      <HintPath>C:\Program Files (x86)\Ranorex\Studio\Bin\AvalonDock.Themes.dll</HintPath>
+    </Reference>
+    <Reference Include="BouncyCastle.Crypto, Version=1.8.9.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
+      <HintPath>..\packages\BouncyCastle.1.8.9\lib\BouncyCastle.Crypto.dll</HintPath>
+    </Reference>
+    <Reference Include="CommandLine">
+      <HintPath>C:\Program Files (x86)\Ranorex\Studio\Bin\CommandLine.dll</HintPath>
+    </Reference>
+    <Reference Include="DelphiInstrumentation, Version=9.3.4.0, Culture=neutral, PublicKeyToken=b798506b574ebc9a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\Ranorex\Studio\Bin\DelphiInstrumentation.dll</HintPath>
+    </Reference>
+    <Reference Include="DocumentFormat.OpenXml">
+      <HintPath>C:\Program Files (x86)\Ranorex\Studio\Bin\DocumentFormat.OpenXml.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="EPPlus, Version=5.1.1.0, Culture=neutral, PublicKeyToken=ea159fdaa78159a1, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPPlus.5.1.1\lib\net45\EPPlus.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Protobuf, Version=3.14.0.0, Culture=neutral, PublicKeyToken=a7d26565bac4d604, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Protobuf.3.14.0\lib\net45\Google.Protobuf.dll</HintPath>
+    </Reference>
+    <Reference Include="ICSharpCode.AvalonEdit">
+      <HintPath>C:\Program Files (x86)\Ranorex\Studio\Bin\ICSharpCode.AvalonEdit.dll</HintPath>
+    </Reference>
+    <Reference Include="ICSharpCode.Build.Tasks">
+      <HintPath>C:\Program Files (x86)\Ranorex\Studio\Bin\ICSharpCode.Build.Tasks.dll</HintPath>
+    </Reference>
+    <Reference Include="ICSharpCode.Core">
+      <HintPath>C:\Program Files (x86)\Ranorex\Studio\Bin\ICSharpCode.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="ICSharpCode.Core.Presentation">
+      <HintPath>C:\Program Files (x86)\Ranorex\Studio\Bin\ICSharpCode.Core.Presentation.dll</HintPath>
+    </Reference>
+    <Reference Include="ICSharpCode.Core.WinForms">
+      <HintPath>C:\Program Files (x86)\Ranorex\Studio\Bin\ICSharpCode.Core.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="ICSharpCode.NRefactory">
+      <HintPath>C:\Program Files (x86)\Ranorex\Studio\Bin\ICSharpCode.NRefactory.dll</HintPath>
+    </Reference>
+    <Reference Include="ICSharpCode.Scripting">
+      <HintPath>C:\Program Files (x86)\Ranorex\Studio\Bin\ICSharpCode.Scripting.dll</HintPath>
+    </Reference>
+    <Reference Include="ICSharpCode.SharpDevelop">
+      <HintPath>C:\Program Files (x86)\Ranorex\Studio\Bin\ICSharpCode.SharpDevelop.dll</HintPath>
+    </Reference>
+    <Reference Include="ICSharpCode.SharpDevelop.Dom">
+      <HintPath>C:\Program Files (x86)\Ranorex\Studio\Bin\ICSharpCode.SharpDevelop.Dom.dll</HintPath>
+    </Reference>
+    <Reference Include="ICSharpCode.SharpDevelop.Sda">
+      <HintPath>C:\Program Files (x86)\Ranorex\Studio\Bin\ICSharpCode.SharpDevelop.Sda.dll</HintPath>
+    </Reference>
+    <Reference Include="ICSharpCode.SharpDevelop.Widgets">
+      <HintPath>C:\Program Files (x86)\Ranorex\Studio\Bin\ICSharpCode.SharpDevelop.Widgets.dll</HintPath>
+    </Reference>
+    <Reference Include="ICSharpCode.TreeView">
+      <HintPath>C:\Program Files (x86)\Ranorex\Studio\Bin\ICSharpCode.TreeView.dll</HintPath>
+    </Reference>
+    <Reference Include="K4os.Compression.LZ4, Version=1.1.11.0, Culture=neutral, PublicKeyToken=2186fa9121ef231d, processorArchitecture=MSIL">
+      <HintPath>..\packages\K4os.Compression.LZ4.1.1.11\lib\net46\K4os.Compression.LZ4.dll</HintPath>
+    </Reference>
+    <Reference Include="K4os.Compression.LZ4.Streams, Version=1.1.11.0, Culture=neutral, PublicKeyToken=2186fa9121ef231d, processorArchitecture=MSIL">
+      <HintPath>..\packages\K4os.Compression.LZ4.Streams.1.1.11\lib\net46\K4os.Compression.LZ4.Streams.dll</HintPath>
+    </Reference>
+    <Reference Include="K4os.Hash.xxHash, Version=1.0.6.0, Culture=neutral, PublicKeyToken=32cd54395057cec3, processorArchitecture=MSIL">
+      <HintPath>..\packages\K4os.Hash.xxHash.1.0.6\lib\net46\K4os.Hash.xxHash.dll</HintPath>
+    </Reference>
+    <Reference Include="ListarJanelasAbertas, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\ListarJanelasAbertas\ListarJanelasAbertas\bin\Debug\ListarJanelasAbertas.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ApplicationInsights, Version=2.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\Ranorex\Studio\Bin\Microsoft.ApplicationInsights.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=1.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.1.1.0\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Bcl.HashCode, Version=1.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.HashCode.1.1.0\lib\net461\Microsoft.Bcl.HashCode.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Data.SqlClient, Version=1.12.20106.1, Culture=neutral, PublicKeyToken=23ec7fc2d6eaa4a5, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Data.SqlClient.1.1.2\lib\net46\Microsoft.Data.SqlClient.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.EntityFrameworkCore, Version=3.1.3.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.EntityFrameworkCore.3.1.3\lib\netstandard2.0\Microsoft.EntityFrameworkCore.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.EntityFrameworkCore.Abstractions, Version=3.1.3.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.EntityFrameworkCore.Abstractions.3.1.3\lib\netstandard2.0\Microsoft.EntityFrameworkCore.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.EntityFrameworkCore.Design, Version=3.1.3.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.EntityFrameworkCore.Design.3.1.3\lib\netstandard2.0\Microsoft.EntityFrameworkCore.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.EntityFrameworkCore.Relational, Version=3.1.3.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.EntityFrameworkCore.Relational.3.1.3\lib\netstandard2.0\Microsoft.EntityFrameworkCore.Relational.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.EntityFrameworkCore.SqlServer, Version=3.1.3.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.EntityFrameworkCore.SqlServer.3.1.3\lib\netstandard2.0\Microsoft.EntityFrameworkCore.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Caching.Abstractions, Version=3.1.3.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Caching.Abstractions.3.1.3\lib\netstandard2.0\Microsoft.Extensions.Caching.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Caching.Memory, Version=3.1.3.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Caching.Memory.3.1.3\lib\netstandard2.0\Microsoft.Extensions.Caching.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Configuration, Version=3.1.3.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Configuration.3.1.3\lib\netstandard2.0\Microsoft.Extensions.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Configuration.Abstractions, Version=3.1.3.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Configuration.Abstractions.3.1.3\lib\netstandard2.0\Microsoft.Extensions.Configuration.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Configuration.Binder, Version=3.1.3.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Configuration.Binder.3.1.3\lib\netstandard2.0\Microsoft.Extensions.Configuration.Binder.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.DependencyInjection, Version=3.1.3.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.DependencyInjection.3.1.3\lib\net461\Microsoft.Extensions.DependencyInjection.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.DependencyInjection.Abstractions, Version=3.1.3.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.DependencyInjection.Abstractions.3.1.3\lib\netstandard2.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Logging, Version=3.1.3.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Logging.3.1.3\lib\netstandard2.0\Microsoft.Extensions.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Logging.Abstractions, Version=3.1.3.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Logging.Abstractions.3.1.3\lib\netstandard2.0\Microsoft.Extensions.Logging.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Options, Version=3.1.3.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Options.3.1.3\lib\netstandard2.0\Microsoft.Extensions.Options.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Primitives, Version=3.1.3.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Primitives.3.1.3\lib\netstandard2.0\Microsoft.Extensions.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Identity.Client, Version=4.12.0.0, Culture=neutral, PublicKeyToken=0a613f4dd989e8ae, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Identity.Client.4.12.0\lib\net45\Microsoft.Identity.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.JsonWebTokens, Version=6.5.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.IdentityModel.JsonWebTokens.6.5.1\lib\net461\Microsoft.IdentityModel.JsonWebTokens.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.Logging, Version=6.5.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.IdentityModel.Logging.6.5.1\lib\net461\Microsoft.IdentityModel.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.Protocols, Version=6.5.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.IdentityModel.Protocols.6.5.1\lib\net461\Microsoft.IdentityModel.Protocols.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.Protocols.OpenIdConnect, Version=6.5.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.IdentityModel.Protocols.OpenIdConnect.6.5.1\lib\net461\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.Tokens, Version=6.5.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.IdentityModel.Tokens.6.5.1\lib\net461\Microsoft.IdentityModel.Tokens.dll</HintPath>
+    </Reference>
+    <Reference Include="Mono.Cecil">
+      <HintPath>C:\Program Files (x86)\Ranorex\Studio\Bin\Mono.Cecil.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data, Version=8.0.26.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.8.0.26\lib\net48\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data.EntityFrameworkCore, Version=8.0.22.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.EntityFrameworkCore.8.0.22\lib\netstandard2.0\MySql.Data.EntityFrameworkCore.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="Renci.SshNet, Version=2016.1.0.0, Culture=neutral, PublicKeyToken=1cee9f8bde3db106, processorArchitecture=MSIL">
+      <HintPath>..\packages\SSH.NET.2016.1.0\lib\net40\Renci.SshNet.dll</HintPath>
+    </Reference>
+    <Reference Include="SharpDevelop.EnvDTE">
+      <HintPath>C:\Program Files (x86)\Ranorex\Studio\Bin\SharpDevelop.EnvDTE.dll</HintPath>
+    </Reference>
+    <Reference Include="stdole, Version=7.0.3300.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <HintPath>..\packages\stdole.16.9.31023.347\lib\net45\stdole.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Collections.Immutable, Version=1.2.5.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Collections.Immutable.1.7.0\lib\netstandard2.0\System.Collections.Immutable.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel" />
+    <Reference Include="System.ComponentModel.Annotations, Version=4.2.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ComponentModel.Annotations.4.7.0\lib\net461\System.ComponentModel.Annotations.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Configuration.Install" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Common, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.Common.4.3.0\lib\net451\System.Data.Common.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Diagnostics.DiagnosticSource, Version=4.0.5.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Diagnostics.DiagnosticSource.4.7.0\lib\net46\System.Diagnostics.DiagnosticSource.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Drawing.Design" />
+    <Reference Include="System.IdentityModel" />
+    <Reference Include="System.IdentityModel.Tokens.Jwt, Version=6.5.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IdentityModel.Tokens.Jwt.6.5.1\lib\net461\System.IdentityModel.Tokens.Jwt.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Management" />
+    <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.4\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.6.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.7.1\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security" />
+    <Reference Include="System.Threading.Tasks" />
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Ubiety.Dns.Core, Version=2.2.1.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.8.0.26\lib\net48\Ubiety.Dns.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="WindowsBase, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\WindowsBase.4.6.1055.0\lib\WindowsBase.dll</HintPath>
+    </Reference>
+    <Reference Include="WindowsInput, Version=1.0.4.0, Culture=neutral, PublicKeyToken=9b287f7dc5073cad, processorArchitecture=MSIL">
+      <HintPath>..\packages\InputSimulator.1.0.4.0\lib\net20\WindowsInput.dll</HintPath>
+    </Reference>
+    <Reference Include="Zstandard.Net, Version=1.1.7.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.8.0.26\lib\net48\Zstandard.Net.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Classes\Atualizacao.cs" />
+    <Compile Include="Classes\Continua.cs" />
+    <Compile Include="Classes\ControllerERP_Pronto.cs" />
+    <Compile Include="Classes\DetectaImagem.cs" />
+    <Compile Include="Classes\Exportar.cs" />
+    <Compile Include="Classes\Mensagerias.cs" />
+    <Compile Include="Classes\ParaEtiquetas.cs" />
+    <Compile Include="DAO\CRUD.cs" />
+    <Compile Include="DAO\IMySql.cs" />
+    <Compile Include="DAO\ISqlServer.cs" />
+    <Compile Include="Data\SqlServerContext.cs" />
+    <Compile Include="Data\MySqlContext .cs" />
+    <Compile Include="Entidade\Atualizacao.cs" />
+    <Compile Include="Entidade\DeTerceiros.cs" />
+    <Compile Include="Entidade\ForaDeEstoque.cs" />
+    <Compile Include="Entidade\ItensDeEstoque.cs" />
+    <Compile Include="Entidade\ListFiles.cs" />
+    <Compile Include="Entidade\Movimento.cs" />
+    <Compile Include="Entidade\NotasFiscaisDinamicaProduto.cs" />
+    <Compile Include="Entidade\OrdensDeProducao.cs" />
+    <Compile Include="Entidade\PedidoDeCompra.cs" />
+    <Compile Include="Entidade\PedidoDeVenda.cs" />
+    <Compile Include="Entidade\RegistroInventario.cs" />
+    <Compile Include="Entidade\DepositoDeTerceiro.cs" />
+    <Compile Include="Classes\ERP_Pronto.cs" />
+    <Compile Include="Classes\Exports.cs" />
+    <Compile Include="Classes\Import.cs" />
+    <Compile Include="Classes\PadronizarColunasDados.cs" />
+    <Compile Include="Entidade\SaldoDeTerceiro.cs" />
+    <Compile Include="Entidade\Saldo.cs" />
+    <Compile Include="Migrations\20200501015132_Start.cs" />
+    <Compile Include="Migrations\20200501015132_Start.Designer.cs">
+      <DependentUpon>20200501015132_Start.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\20200510190233_Atualizacao.cs" />
+    <Compile Include="Migrations\20200510190233_Atualizacao.designer.cs">
+      <DependentUpon>20200510190233_Atualizacao.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\20200603160753_OrdensDeProducao.cs" />
+    <Compile Include="Migrations\20200603160753_OrdensDeProducao.designer.cs">
+      <DependentUpon>20200603160753_OrdensDeProducao.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\20200603162913_OrdensDeProducao2.cs" />
+    <Compile Include="Migrations\20200603162913_OrdensDeProducao2.designer.cs">
+      <DependentUpon>20200603162913_OrdensDeProducao2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\20200603183839_OrdensDeProducao3.cs" />
+    <Compile Include="Migrations\20200603183839_OrdensDeProducao3.designer.cs">
+      <DependentUpon>20200603183839_OrdensDeProducao3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\20200608171101_NotasFiscaisDinamicaProduto.cs" />
+    <Compile Include="Migrations\20200608171101_NotasFiscaisDinamicaProduto.designer.cs">
+      <DependentUpon>20200608171101_NotasFiscaisDinamicaProduto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\20200616191118_PedidoDeVenda25.cs" />
+    <Compile Include="Migrations\20200616191118_PedidoDeVenda25.designer.cs">
+      <DependentUpon>20200616191118_PedidoDeVenda25.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\20210104115130_PedidoDeVenda.cs" />
+    <Compile Include="Migrations\20210104115130_PedidoDeVenda.designer.cs">
+      <DependentUpon>20210104115130_PedidoDeVenda.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\20210104154700_PedidoDeVenda2.cs" />
+    <Compile Include="Migrations\20210104154700_PedidoDeVenda2.designer.cs">
+      <DependentUpon>20210104154700_PedidoDeVenda2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\20210326140415_SaldoLivre17.cs" />
+    <Compile Include="Migrations\20210326140415_SaldoLivre17.designer.cs">
+      <DependentUpon>20210326140415_SaldoLivre17.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\20210326141858_desc3.cs" />
+    <Compile Include="Migrations\20210326141858_desc3.designer.cs">
+      <DependentUpon>20210326141858_desc3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\20210326145237_Livre17Precision.cs" />
+    <Compile Include="Migrations\20210326145237_Livre17Precision.designer.cs">
+      <DependentUpon>20210326145237_Livre17Precision.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\20210415143652_PVsInOPs.cs" />
+    <Compile Include="Migrations\20210415143652_PVsInOPs.designer.cs">
+      <DependentUpon>20210415143652_PVsInOPs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\MySqlContextModelSnapshot.cs" />
+    <Compile Include="Migrations\SqlServerContextModelSnapshot.cs" />
+    <Compile Include="Migrations\SqlServer\20200501021149_Start.cs" />
+    <Compile Include="Migrations\SqlServer\20200501021149_Start.Designer.cs">
+      <DependentUpon>20200501021149_Start.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\SqlServer\20200510190214_Atualizacao.cs" />
+    <Compile Include="Migrations\SqlServer\20200510190214_Atualizacao.designer.cs">
+      <DependentUpon>20200510190214_Atualizacao.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\SqlServer\20200603160123_OrdensDeProducao.cs" />
+    <Compile Include="Migrations\SqlServer\20200603160123_OrdensDeProducao.designer.cs">
+      <DependentUpon>20200603160123_OrdensDeProducao.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\SqlServer\20200603162939_OrdensDeProducao2.cs" />
+    <Compile Include="Migrations\SqlServer\20200603162939_OrdensDeProducao2.designer.cs">
+      <DependentUpon>20200603162939_OrdensDeProducao2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\SqlServer\20200603183811_OrdensDeProducao3.cs" />
+    <Compile Include="Migrations\SqlServer\20200603183811_OrdensDeProducao3.designer.cs">
+      <DependentUpon>20200603183811_OrdensDeProducao3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\SqlServer\20200608171032_NotasFiscaisDinamicaProduto.cs" />
+    <Compile Include="Migrations\SqlServer\20200608171032_NotasFiscaisDinamicaProduto.designer.cs">
+      <DependentUpon>20200608171032_NotasFiscaisDinamicaProduto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\SqlServer\20200616191046_PedidoDeVenda25.cs" />
+    <Compile Include="Migrations\SqlServer\20200616191046_PedidoDeVenda25.designer.cs">
+      <DependentUpon>20200616191046_PedidoDeVenda25.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Principal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Principal.Designer.cs">
+      <DependentUpon>Principal.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Principal.resx">
+      <DependentUpon>Principal.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="Microsoft.Office.Core">
+      <Guid>{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>8</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="VBIDE">
+      <Guid>{0002E157-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>5</VersionMajor>
+      <VersionMinor>3</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="arrow_bottom_15602.ico" />
+    <None Include="Resources\btnSalvar.PNG" />
+    <None Include="Resources\btnOkLogin.PNG" />
+    <None Include="Resources\Confirmar.PNG" />
+    <None Include="Resources\ExportarRegistros.PNG" />
+    <None Include="Resources\Depositos.PNG" />
+    <None Include="Resources\MaterialDeTerceiro.PNG" />
+    <None Include="Resources\Estabelecimentos.PNG" />
+    <None Include="Resources\DataDeEntrega.PNG" />
+    <None Include="Resources\Todos2.PNG" />
+    <None Include="Resources\Todos.PNG" />
+    <None Include="Resources\Max2.PNG" />
+    <None Include="Resources\Max.PNG" />
+    <None Include="Resources\btnExecuta2.PNG" />
+    <None Include="Resources\btnExecutar.PNG" />
+    <None Include="Resources\btnOK_.PNG" />
+    <None Include="Resources\btnSalvarTodos.PNG" />
+    <None Include="Resources\btnJanelas.PNG" />
+    <None Include="Resources\SiglaDaJanela.PNG" />
+    <None Include="Resources\btnOK.PNG" />
+    <None Include="Resources\LocalizarJanela.PNG" />
+    <None Include="Resources\DownloadConcluido.PNG" />
+    <None Include="Resources\btnIncluir.png" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>Este projeto faz referência a pacotes do NuGet que não estão presentes neste computador. Use a Restauração de Pacotes do NuGet para baixá-los.  Para obter mais informações, consulte http://go.microsoft.com/fwlink/?LinkID=322105. O arquivo ausente é {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\AutoItX.Dotnet.3.3.14.5\build\AutoItX.Dotnet.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\AutoItX.Dotnet.3.3.14.5\build\AutoItX.Dotnet.targets'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.Data.SqlClient.SNI.1.1.1\build\net46\Microsoft.Data.SqlClient.SNI.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Data.SqlClient.SNI.1.1.1\build\net46\Microsoft.Data.SqlClient.SNI.targets'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.VisualStudio.SDK.EmbedInteropTypes.15.0.34\build\Microsoft.VisualStudio.SDK.EmbedInteropTypes.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.VisualStudio.SDK.EmbedInteropTypes.15.0.34\build\Microsoft.VisualStudio.SDK.EmbedInteropTypes.targets'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.EntityFrameworkCore.Design.3.1.3\build\net461\Microsoft.EntityFrameworkCore.Design.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.EntityFrameworkCore.Design.3.1.3\build\net461\Microsoft.EntityFrameworkCore.Design.props'))" />
+  </Target>
+  <Import Project="..\packages\AutoItX.Dotnet.3.3.14.5\build\AutoItX.Dotnet.targets" Condition="Exists('..\packages\AutoItX.Dotnet.3.3.14.5\build\AutoItX.Dotnet.targets')" />
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
+  <Import Project="..\packages\Microsoft.Data.SqlClient.SNI.1.1.1\build\net46\Microsoft.Data.SqlClient.SNI.targets" Condition="Exists('..\packages\Microsoft.Data.SqlClient.SNI.1.1.1\build\net46\Microsoft.Data.SqlClient.SNI.targets')" />
+  <Import Project="..\packages\Microsoft.VisualStudio.SDK.EmbedInteropTypes.15.0.34\build\Microsoft.VisualStudio.SDK.EmbedInteropTypes.targets" Condition="Exists('..\packages\Microsoft.VisualStudio.SDK.EmbedInteropTypes.15.0.34\build\Microsoft.VisualStudio.SDK.EmbedInteropTypes.targets')" />
+</Project>
