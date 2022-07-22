@@ -1,0 +1,29 @@
+﻿<div class="container-fluid m-0 p-0 border w-100">
+    <div class="container-fluid  bg-secondary">
+        <div class="row bg-dark w-auto">
+            <div class="col border bg-info overflow-auto" style="height:250px">
+                @await Html.PartialAsync("~/Views/Shared/_MenuLateral.cshtml")
+            </div>
+            <div class="col border bg-danger w-100" style="height:250px">
+                <form asp-action="Procurar" method="post">
+                    <div class="form-group">
+                        <div asp-validation-summary="All" class="text-danger"></div>
+                        <div>
+                            <label class="control-label">Tipo</label>
+                            <select class="form-control" name="selecao">
+                                <option value="Descricao">Descricao</option>
+                                <option value="Produto">Produto</option>
+                                <option value="Prateleira">Prateleira</option>
+                                <option value="Grupo">Grupo</option>
+                            </select>
+                            <label class="control-label ">Texto a Procurar</label>
+                            <input type="text" name="texto" class="form-control" />
+                            <input value="Procurar" asp-action="Index" type="submit" class="btn btn-primary" style="margin-top: 5px" />
+                            <label style="display: block; width: 50%; float: right; border: red solid 1px; margin: 5px;">@i Linhas</label>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,81 @@
+﻿@model IEnumerable<EstoqueWeb.Models.PedidoDeCompra>
+@using System.Linq.Dynamic;
+@using EstoqueWeb.Util
+@using System.Data;
+@{
+    DataTable dt = new DataTable(); }
+@{ int i = 0;
+    if (!(Model is null))
+    {
+        i = Model.Count();
+        ConvertToDataTable ctdt = new ConvertToDataTable();
+        dt = ctdt.ConverterToDataTable(Model.Where(p => p.Id > 0).ToList());
+    }
+}
+<div class="container-fluid border p-0 m-0">
+    <div class="table-responsive">
+        <table class="fixed_header table-striped table-dark table-hover flex-nowrap">
+            @if (i > 0)
+            {
+                <thead>
+                    <tr>
+
+                        @{
+                            PedidoDeCompra pdc = new PedidoDeCompra();
+
+                            var x = pdc.GetType().GetProperties();
+                        }
+                        @foreach (var item in x)
+                        {
+                            <th>@item.Name</th>
+                        }
+                    </tr>
+                </thead>
+                <tbody>
+                    @for (int j = 0; j < dt.Rows.Count; j++)
+                    {
+                        <tr>
+                            @for (int p = 0; p < dt.Rows[j].ItemArray.Length; p++)
+                            {
+                                <td>@dt.Rows[j].ItemArray[p]</td>
+                            }
+                        </tr>
+                    }
+                </tbody>
+            }
+        </table>
+    </div>
+</div>
+
+<style>
+
+    .fixed_header {
+        width: unset;
+        table-layout: fixed;
+        border-collapse: collapse;
+        font-size: 1rem;
+    }
+
+        .fixed_header tbody {
+            display: block;
+            width: 100%;
+            overflow: auto;
+            height: 630px;
+        }
+
+        .fixed_header thead tr {
+            display: block;
+        }
+
+        .fixed_header thead {
+            background: black;
+            color: #fff;
+        }
+
+        .fixed_header th, .fixed_header td {
+            padding: 5px;
+            text-align: left;
+            text-overflow: unset;
+        }
+</style>
+

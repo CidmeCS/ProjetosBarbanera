@@ -1,0 +1,167 @@
+﻿@model IEnumerable<EstoqueWeb.Models.Saldo>
+
+@{ int i = 0;
+    if (!(Model is null))
+    {
+        i = Model.Count();
+    }
+}
+
+@{ 
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    }
+
+<div class="container-fluid m-0 p-0 border w-100">
+    <div class="container-fluid  bg-secondary">
+
+        <div class="row bg-dark w-auto">
+
+          
+
+            <div class="col border bg-info overflow-auto" style="height:250px">
+
+                <ul>
+                    <li>
+                        CONSULTAS
+                        <ul>
+                            <li>
+                                <a asp-area="" asp-controller="Saldo" asp-action="Index">Saldo</a>
+                            </li>
+                            <li>
+                                <a asp-area="" asp-controller="PedidoDeCompra" asp-action="Index">Pedido de Compra</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>PAGINAS</li>
+                    <li>PAGINAS</li>
+                    <li>PAGINAS</li>
+                    <li>PAGINAS</li>
+                    <li>PAGINAS</li>
+                    <li>PAGINAS</li>
+                    <li>PAGINAS</li>
+                    <li>PAGINAS</li>
+                    <li>PAGINAS</li>
+                    <li>PAGINAS</li>
+                    <li>PAGINAS</li>
+                    <li>PAGINAS</li>
+                    <li>PAGINAS</li>
+                    <li>PAGINAS</li>
+                    <li>PAGINAS</li>
+                    <li>PAGINAS</li>
+                </ul>
+            </div>
+            <div class="col border bg-danger w-100" style="height:250px">
+                <form asp-action="Procurar" method="post">
+                    <div class="form-group">
+                        <div asp-validation-summary="All" class="text-danger"></div>
+                        <div>
+                            <label class="control-label">Tipo</label>
+                            <select class="form-control" name="selecao">
+                                <option value="Descricao">Descricao</option>
+                                <option value="Produto">Produto</option>
+                                <option value="Prateleira">Prateleira</option>
+                                <option value="Grupo">Grupo</option>
+                            </select>
+                            <label class="control-label ">Texto a Procurar</label>
+                            <input type="text" name="texto" class="form-control" />
+                            <input value="Procurar" asp-action="Index" type="submit" class="btn btn-primary" style="margin-top: 5px" />
+                            <label style="display: block; width: 50%; float: right; border: red solid 1px; margin: 5px;">@i Linhas</label>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid border p-0 m-0">
+    <div class="table-responsive">
+        <table class="fixed_header table-striped table-dark table-hover flex-nowrap">
+            <thead>
+                <tr>
+                    <th style="min-width:190px">Produto</th>
+                    <th style="min-width:620px;">Descricao</th>
+                    <th style="min-width:50px;">Und</th>
+                    <th style="min-width:110px;">SaldoAtual</th>
+                    <th style="min-width:110px;">PedCompras</th>
+                    <th style="min-width:110px;">PrevFabric</th>
+                    <th style="min-width:110px;">EstqMínimo</th>
+                    <th style="min-width:110px;">ConsuPrevOs</th>
+                    <th style="min-width:110px;">EstqMáximo</th>
+                    <th style="min-width:110px;">Prateleira</th>
+                    <th style="min-width:110px;">PedVendas</th>
+                    <th style="min-width:140px;">Grupo</th>
+                    <th style="min-width:110px;">DSMovt</th>
+                    <th style="min-width:80px;">M_Kg</th>
+                    <th style="min-width:110px;">ForaEstoque</th>
+                    <th style="min-width:110px;">DeTerceiros</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                @if (i > 0)
+                {
+                    @foreach (var item in Model)
+                    {
+                        var mtk = Math.Round(item.AguardandoCQ, 3);
+                        <tr>
+                            <td style="min-width:190px"> @Html.DisplayFor(modelItem => item.Produto)</td>
+                            <td style="min-width:620px;"> @Html.DisplayFor(modelItem => item.Descricao)</td>
+                            <td style="min-width:50px;"> @Html.DisplayFor(modelItem => item.Unid)</td>
+                            <td style="min-width:110px;"> @Html.DisplayFor(modelItem => item.SaldoAtual)</td>
+                            <td style="min-width:110px;"> @Html.DisplayFor(modelItem => item.PedCompras)</td>
+                            <td style="min-width:110px;"> @Html.DisplayFor(modelItem => item.PrevFabric)</td>
+                            <td style="min-width:110px;"> @Html.DisplayFor(modelItem => item.EstqMinimo)</td>
+                            <td style="min-width:110px;"> @Html.DisplayFor(modelItem => item.ConsuPrevOs)</td>
+                            <td style="min-width:110px;"> @Html.DisplayFor(modelItem => item.EstqMaximo)</td>
+                            <td style="min-width:110px;"> @Html.DisplayFor(modelItem => item.Prateleira)</td>
+                            <td style="min-width:110px;"> @Html.DisplayFor(modelItem => item.PedVendas)</td>
+                            <td style="min-width:140px;"> @Html.DisplayFor(modelItem => item.Grupo)</td>
+                            <td style="min-width:110px;"> @Html.DisplayFor(modelItem => item.DiassemMovimento)</td>
+                            <td style="min-width:80px;"> @mtk</td>
+                            <td style="min-width:110px;"> @Html.DisplayFor(modelItem => item.ForaEstoque)</td>
+                            <td style="min-width:110px;"> @Html.DisplayFor(modelItem => item.DeTerceiros)</td>
+                        </tr>
+                    }
+                }
+                else
+                {
+
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<style>
+
+    .fixed_header {
+        width: unset;
+        table-layout: fixed;
+        border-collapse: collapse;
+        font-size: 1rem;
+    }
+
+        .fixed_header tbody {
+            display: block;
+            width: 100%;
+            overflow: auto;
+            height: 630px;
+        }
+
+        .fixed_header thead tr {
+            display: block;
+        }
+
+        .fixed_header thead {
+            background: black;
+            color: #fff;
+        }
+
+        .fixed_header th, .fixed_header td {
+            padding: 5px;
+            text-align: left;
+            text-overflow: unset;
+        }
+</style>
