@@ -1,0 +1,25 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "PlatformIO",
+			"task": "Devices",
+			"problemMatcher": [
+				"$platformio"
+			],
+			"label": "PlatformIO: Devices"
+		},
+		{
+			"type": "PlatformIO",
+			"task": "Check (esp32dev)",
+			"problemMatcher": [
+				"$platformio"
+			],
+			"label": "PlatformIO: Check (esp32dev)",
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			}
+		}
+	]
+}
