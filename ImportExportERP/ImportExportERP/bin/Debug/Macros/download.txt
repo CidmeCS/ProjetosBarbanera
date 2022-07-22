@@ -1,0 +1,13 @@
+ //
+                File.Delete("C:\\Exports\\btnExiste.txt");
+                Thread.Sleep(1000);
+                Process.Start("DownloadConcluido.exe");
+                while (true)
+                {
+                    if (File.Exists("C:\\Exports\\btnExiste.txt"))
+                    {
+                        break;
+                    }
+                }
+                //
+                //Thread.Sleep(tempoFechamento);

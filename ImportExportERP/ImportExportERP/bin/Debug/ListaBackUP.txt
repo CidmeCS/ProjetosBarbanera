@@ -1,0 +1,13 @@
+ConsultaOrdensDeProducao.txt
+DepositoDeTerceiro.txt
+DeTerceiro.txt
+ExportSaldo.txt
+ForaDeEstoque.txt
+ItensDeEstoque.txt
+Movimentos.txt
+MovimentosTotal.txt
+NotasFiscaisDinamicaProduto.txt
+PedidosDeCompras.txt
+PedidosDeVendas.txt
+PedidosDeVendasEtiquetas.txt
+SaldoDeTerceiro.txt

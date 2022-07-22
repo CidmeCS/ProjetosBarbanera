@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<report
+	progress="">
+	<activity
+		result="Success"
+		duration="12.24s"
+		durationms="12242"
+		type="root"
+		rid="9ccdd6a31a49b0f"
+		totalerrorcount="0"
+		totalwarningcount="0"
+		totalsuccesstestcasecount="0"
+		totalfailedtestcasecount="0"
+		totalblockedtestcasecount="0"
+		childsuccesscount="0"
+		childfailedcount="0"
+		childblockedcount="0"
+		totalsuccesscount="0"
+		totalfailedcount="0"
+		totalblockedcount="0"
+		totalmaintenancemodecount="0"
+		user="Estoque"
+		rxversion="9.3.4.0"
+		host="ESTOQUE"
+		osversion="Windows 10 64bit"
+		runtimeversion="4.0.30319.42000"
+		procarch="32bit"
+		oslanguage="pt-BR"
+		dtnlanguage="pt-BR"
+		screenresolution="1920x1080"
+		timestamp="20/05/2021 16:59:22"
+		timestampiso="2021-05-20T19:59:22"
+		endtime="20/05/2021 16:59:35"
+		timeoutfactor="1"
+		runid=""
+		sutversion="">
+		<detail>
+			Ranorex Testscript
+		</detail>
+		<item
+			timeRelativeToTestSuiteStartTime="00:00.024"
+			timeRelativeToTestModuleStartTime="00:00.024"
+			timeWallClock="16:59:22"
+			time="00:00.024"
+			level="Info"
+			category="Application">
+			<message>
+				Run application 'C:\Exports\erpPronto.jnlp' in normal mode.
+			</message>
+			<metainfo
+				itemindex="0"
+				codefile="E:\GitHub\ImportExportERP\ImportExportERP\Views\Principal.cs"
+				codeline="123"
+				loglvl="Info">
+			</metainfo>
+		</item>
+	</activity>
+</report>
